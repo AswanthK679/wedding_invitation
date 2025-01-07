@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to deploy from, like `main` or `master`
+      - main  # Change this to the branch you want to deploy from, e.g., `main` or `master`
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}  # This token will be used to deploy the site
+        github_token: ${{ secrets.GH_TOKEN }}  # Use the PAT to authenticate the bot
         publish_dir: ./  # Directory to publish (./ means the root of the repository)
         # If your index.html is in a subdirectory, you can specify that directory instead
         # Example: publish_dir: ./dist or ./build
