@@ -1,0 +1,24 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to deploy from, like `main` or `master`
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Ensures the full history of the repository is fetched, which is important for deployment
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # This token will be used to deploy the site
+        publish_dir: ./  # Directory to publish (./ means the root of the repository)
+        # If your index.html is in a subdirectory, you can specify that directory instead
+        # Example: publish_dir: ./dist or ./build
