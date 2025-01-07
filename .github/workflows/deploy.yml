@@ -1,23 +1,23 @@
-name: Deploy to GitHub Pages
+# name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main  # Push event triggered by commits to the main branch
+# on:
+#   push:
+#     branches:
+#       - main  # Push event triggered by commits to the main branch
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Fetches the full history of the repository
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v2
+#       with:
+#         fetch-depth: 0  # Fetches the full history of the repository
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GH_TOKEN }}  # Use the PAT or GitHub token for authentication
-        publish_dir: ./  # Publish the root directory (./ means from the root of the main branch)
-        target_branch: gh-pages  # This tells the action to push the content to the gh-pages branch
+#     - name: Deploy to GitHub Pages
+#       uses: peaceiris/actions-gh-pages@v3
+#       with:
+#         github_token: ${{ secrets.GH_TOKEN }}  # Use the PAT or GitHub token for authentication
+#         publish_dir: ./  # Publish the root directory (./ means from the root of the main branch)
+#         target_branch: gh-pages  # This tells the action to push the content to the gh-pages branch
